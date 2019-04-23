@@ -69,7 +69,7 @@ namespace ODataWithSwagger
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc(routeBuilder => routeBuilder.MapVersionedODataRoutes("odata", "api", modelBuilder.GetEdmModels()));
+            app.UseMvc(routeBuilder => routeBuilder.MapVersionedODataRoutes("odata", "api/v{version:apiVersion}", modelBuilder.GetEdmModels()));
             app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
