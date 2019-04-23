@@ -1,6 +1,6 @@
 # ODataWithSwagger
 
-Hitting `/api/Companies&=Select=Id` throws
+Hitting `/api/Companies?$Select=Id` throws
 
 ```json
 {
