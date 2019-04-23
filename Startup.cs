@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -69,7 +69,11 @@ namespace ODataWithSwagger
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc(routeBuilder => routeBuilder.MapVersionedODataRoutes("odata", "api/v{version:apiVersion}", modelBuilder.GetEdmModels()));
+            app.UseMvc(routeBuilder => 
+            {
+                routeBuilder.MapVersionedODataRoutes("odata", "api/v{version:apiVersion}", modelBuilder.GetEdmModels());
+                routeBuilder.EnableDependencyInjection();
+            });
             app.UseSwagger();
             app.UseSwaggerUI(
                 options =>
