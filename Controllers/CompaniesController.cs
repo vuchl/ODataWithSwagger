@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Microsoft.AspNet.OData.Query.AllowedQueryOptions;
 
 namespace ODataWithSwagger.Controllers
 {
@@ -21,7 +22,7 @@ namespace ODataWithSwagger.Controllers
         };
 
         [ODataRoute]
-        [EnableQuery]
+        [EnableQuery(AllowedQueryOptions = Select | Filter | Expand)]
         public IQueryable<Company> Get() => companies.AsQueryable();
     }
 }
