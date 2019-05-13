@@ -73,7 +73,7 @@ namespace ODataWithSwagger
             {
                 routeBuilder.MapVersionedODataRoutes("odata", "api/v{version:apiVersion}", modelBuilder.GetEdmModels());
                 routeBuilder.EnableDependencyInjection();
-                routeBuilder.Select().Count().OrderBy().Filter().Expand();
+                // routeBuilder.Select().Count().OrderBy().Filter().Expand();
             });
             app.UseSwagger();
             app.UseSwaggerUI(
